@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elite Dental | Excelência em Atendimento Odontológico</title>
+  <meta name="description" content="Clínica odontológica especializada em atendimento humanizado, tecnologia de ponta e tratamentos personalizados. Agende sua consulta." />
+  <meta name="keywords" content="dentista, odontologia, implantes, ortodontia, Brasília, Elite Dental" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #111;
+      color: #eee;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: #d4af37;
+      font-weight: 700;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Cabeçalho Fixo */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      height: 70px;
+      transition: transform 0.3s ease;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    .lang-switch {
+      background: #d4af37;
+      color: #111;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1920x1080/1a1a1a/d4af37?text=Elite+Dental') no-repeat center center/cover;
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .slogan {
+      font-size: 1.4rem;
+      color: #d4af37;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .btn {
+      background: #d4af37;
+      color: #111;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Seções */
+    section {
+      padding: 6rem 0;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Sobre / História */
+    .story {
+      background: #1a1a1a;
+      padding: 6rem 0;
+    }
+
+    .story-content {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.9;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    /* Serviços */
+    .services {
+      background: #111;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      border: 1px solid #333;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: #d4af37;
+    }
+
+    .service-card h3 {
+      color: #d4af37;
+      margin: 1rem 0;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: #d4af37;
+    }
+
+    /* Contato */
+    .contact {
+      background: #1a1a1a;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info h3 {
+      color: #d4af37;
+    }
+
+    .contact-info p {
+      margin: 0.8rem 0;
+      color: #ccc;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea, button {
+      margin: 0.8rem 0;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+    }
+
+    input, textarea {
+      background: #222;
+      color: #eee;
+      border: 1px solid #444;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    form button {
+      background: #d4af37;
+      color: #111;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #c19e33;
+    }
+
+    /* WhatsApp Fixo */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      z-index: 1001;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-float img {
+      width: 40%;
+    }
+
+    /* Rodapé */
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 3rem 0;
+      border-top: 1px solid #333;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    footer a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin: 1rem 0;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .slogan {
+        font-size: 1.1rem;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .lang-switch {
+        margin: 1rem 0 0 0;
+      }
+    }
+
+    /* Tradução: esconder textos não ativos */
+    [data-lang="en"] { display: none; }
+    .lang-en [data-lang="pt"] { display: none; }
+    .lang-en [data-lang="en"] { display: inline; }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container header-content">
+      <img src="https://via.placeholder.com/300x100?text=ELITE+DENTAL" alt="Logo Elite Dental" class="logo" id="logo" />
+      <nav>
+        <ul>
+          <li><a href="#inicio" class="scroll-link">Início</a></li>
+          <li><a href="#servicos" class="scroll-link">Serviços</a></li>
+          <li><a href="#historia" class="scroll-link">Nossa História</a></li>
+          <li><a href="#contato" class="scroll-link">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="lang-switch" id="lang-toggle">EN</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Elite Dental</h1>
+      <p class="slogan">Excelência em atendimento odontológico especializado</p>
+      <a href="#contato" class="btn">Agende sua consulta</a>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="services">
+    <div class="container">
+      <h2 data-lang="pt">Nossos Serviços</h2>
+      <h2 data-lang="en">Our Services</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3 data-lang="pt">Endodontia</h3>
+          <h3 data-lang="en">Endodontics</h3>
+          <p data-lang="pt">Tratamento de canal com precisão e conforto.</p>
+          <p data-lang="en">Root canal treatment with precision and comfort.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🦷</div>
+          <h3 data-lang="pt">Ortodontia</h3>
+          <h3 data-lang="en">Orthodontics</h3>
+          <p data-lang="pt">Aparelhos fixos, removíveis e Invisalign®.</p>
+          <p data-lang="en">Fixed, removable, and Invisalign® braces.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🩺</div>
+          <h3 data-lang="pt">Periodontia</h3>
+          <h3 data-lang="en">Periodontics</h3>
+          <p data-lang="pt">Tratamento de gengiva e saúde periodontal.</p>
+          <p data-lang="en">Gum treatment and periodontal health.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3 data-lang="pt">Dentística</h3>
+          <h3 data-lang="en">Restorative Dentistry</h3>
+          <p data-lang="pt">Restaurações estéticas e reconstruções.</p>
+          <p data-lang="en">Aesthetic restorations and reconstructions.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👑</div>
+          <h3 data-lang="pt">Prótese Dentária</h3>
+          <h3 data-lang="en">Prosthodontics</h3>
+          <p data-lang="pt">Coroas, pontes e próteses totais.</p>
+          <p data-lang="en">Crowns, bridges, and full dentures.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧬</div>
+          <h3 data-lang="pt">Implantodontia</h3>
+          <h3 data-lang="en">Implantology</h3>
+          <p data-lang="pt">Implantes com tecnologia de ponta.</p>
+          <p data-lang="en">Implants with cutting-edge technology.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👶</div>
+          <h3 data-lang="pt">Odontopediatria</h3>
+          <h3 data-lang="en">Pediatric Dentistry</h3>
+          <p data-lang="pt">Cuidado especializado para crianças.</p>
+          <p data-lang="en">Specialized care for children.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💉</div>
+          <h3 data-lang="pt">Harmonizações Faciais</h3>
+          <h3 data-lang="en">Facial Harmonization</h3>
+          <p data-lang="pt">Toxina botulínica, preenchimentos e mais.</p>
+          <p data-lang="en">Botox, fillers, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nossa História -->
+  <section id="historia" class="story">
+    <div class="container">
+      <h2 data-lang="pt">Nossa História</h2>
+      <h2 data-lang="en">Our Story</h2>
+      <div class="story-content">
+        <p data-lang="pt">
+          Dra. Samikê Lima, idealizadora, CEO e fundadora da Elite Dental, dedica sua carreira a um atendimento odontológico humano e de excelência. Com mais de 8 anos de experiência clínica, ela fundou a Elite Dental com o propósito de atender crianças especiais com um cuidado diferenciado, onde cada paciente e sua particularidade são tratados com respeito, paciência e empatia.
+        </p>
+        <p data-lang="pt">
+          Aqui, priorizamos o conforto e a qualidade em cada etapa do tratamento — desde encaixe funcional até estética e harmonização facial. Nossa equipe interdisciplinar está comprometida em transformar vidas, oferecendo um atendimento personalizado que valoriza o sorriso e o bem-estar.
+        </p>
+        <p data-lang="pt">
+          Localizados no Edifício Lê Quartier, na SHCN Quadra 1, Brasília (DF), estamos prontos para acolher você em um ambiente sofisticado, acessível e seguro. Na Elite Dental, cada sorriso é único — e merece o melhor cuidado.
+        </p>
+
+        <!-- Tradução -->
+        <p data-lang="en">
+          Dr. Samikê Lima, founder, CEO, and visionary behind Elite Dental, has dedicated her career to delivering human-centered, excellence-driven dental care. With over 8 years of clinical experience, she founded Elite Dental with the mission of providing specialized care for children with special needs, treating each patient and their unique needs with respect, patience, and empathy.
+        </p>
+        <p data-lang="en">
+          Here, we prioritize comfort and quality at every stage of treatment — from functional alignment to aesthetics and facial harmonization. Our interdisciplinary team is committed to transforming lives through personalized care that values smiles and overall well-being.
+        </p>
+        <p data-lang="en">
+          Located at Edifício Lê Quartier, SHCN Quadra 1, Brasília (DF), we are ready to welcome you in a sophisticated, accessible, and safe environment. At Elite Dental, every smile is unique — and deserves the best care.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="contact">
+    <div class="container contact-container">
+      <div class="contact-info">
+        <h3 data-lang="pt">Entre em Contato</h3>
+        <h3 data-lang="en">Contact Us</h3>
+        <p><strong>📞</strong> <a href="tel:+5561991023440">+55 (61) 99102-3440</a></p>
+        <p><strong>📍</strong> SHCN Q. 1 – Ed. Lê Quartier – Brasília, DF – 70701-010, Brasil</p>
+        <p data-lang="pt">Agende sua consulta ou tire dúvidas diretamente pelo WhatsApp.</p>
+        <p data-lang="en">Schedule your appointment or ask questions directly via WhatsApp.</p>
+        <a href="https://wa.me/5561991023440" class="btn" target="_blank" style="margin-top: 1rem;">WhatsApp</a>
+      </div>
+      <form action="#" method="post">
+        <input type="text" placeholder="Nome" required />
+        <input type="email" placeholder="E-mail" required />
+        <input type="tel" placeholder="Telefone" />
+        <textarea placeholder="Mensagem"></textarea>
+        <button type="submit" data-lang="pt">Enviar Mensagem</button>
+        <button type="submit" data-lang="en">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>SHCN Q. 1 – Ed. Lê Quartier – Brasília, DF – 70701-010, Brasil</p>
+      <p><a href="tel:+5561991023440">+55 (61) 99102-3440</a> | <a href="mailto:contato@elitedental.com.br">contato@elitedental.com.br</a></p>
+      <p>© 2025 Elite Dental. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Flutuante -->
+  <a href="https://wa.me/5561991023440" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+  <!-- Script de Tradução -->
+  <script>
+    const langToggle = document.getElementById('lang-toggle');
+    let isEnglish = false;
+
+    langToggle.addEventListener('click', () => {
+      isEnglish = !isEnglish;
+      document.documentElement.className = isEnglish ? 'lang-en' : '';
+      langToggle.textContent = isEnglish ? 'PT' : 'EN';
+    });
+
+    // Scroll suave
+    document.querySelectorAll('.scroll-link').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
