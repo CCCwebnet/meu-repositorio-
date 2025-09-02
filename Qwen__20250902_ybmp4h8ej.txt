@@ -1,0 +1,9 @@
+elite-dental/
+│
+├── index.html
+├── style.css
+├── script.js
+├── admin.html
+├── admin.js
+└── assets/
+    └── logo.png (exemplo)
